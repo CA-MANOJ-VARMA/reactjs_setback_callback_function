@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.css-navbar-container {
+  background-color: #f1f5f9;
+  padding: 20px;
+}
+
+.css-websitelogo-itself {
+  height: 70px;
+}
+
+.css-select-container {
+  margin: 30px;
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.css-ul-successview-container {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.css-list-container {
+  margin: 10px;
+}
