@@ -22,12 +22,13 @@ const apiStatusConstants = {
 
 class App extends Component {
   state = {
-    category: categoriesList[0].displayText,
+    category: categoriesList[0].id,
     apiStatus: apiStatusConstants.initial,
     projectsArray: [],
   }
 
   optionSelected = event => {
+    console.log(event.target.value)
     this.setState({category: event.target.value}, this.fetchDetails)
     console.log(event.target.value)
   }
@@ -45,15 +46,16 @@ class App extends Component {
   fetchDetails = async () => {
     const {category} = this.state
     this.setState({apiStatus: apiStatusConstants.progress})
+    console.log('Hello')
     console.log(category)
     const filterList = categoriesList.filter(
-      eachList => eachList.displayText === category,
+      eachList => eachList.id === category,
     )
     console.log(filterList)
-    const apiUrl = `https://apis.ccbp.in/ps/projects?category=${filterList[0].id}`
-    const options = {
-      method: 'GET',
-    }
+    const apiUrl = `https://apis.ccbp.in/ps/projects?category=${category}`
+    // const options = {
+    //   method: 'GET',
+    // }
     const response = await fetch(apiUrl)
     // console.log(response)
     if (response.ok === true) {
@@ -139,7 +141,9 @@ class App extends Component {
             onChange={this.optionSelected}
           >
             {categoriesList.map(eachList => (
-              <option key={eachList.id}>{eachList.displayText}</option>
+              <option key={eachList.id} value={eachList.id}>
+                {eachList.displayText}
+              </option>
             ))}
           </select>
           {this.displayFunction()}
